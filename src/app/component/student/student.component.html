@@ -4,7 +4,7 @@
             <form class="example-form">
                 <h2>Estudiantes</h2>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Buscar">
+                    <input matInput (keyup)="search($event.target.value)" (keyup.backspace)="search($event.target.value)" placeholder="Buscar">
                 </mat-form-field>
             </form>
         </div>
@@ -19,7 +19,7 @@
 <div class="pt-4"></div>
 <div class="width-container">
     <mat-grid-list cols="4" rowHeight="50vh">
-        <mat-grid-tile *ngFor="let student of listStudents" [colspan]="1">
+        <mat-grid-tile *ngFor="let student of listFirter" [colspan]="1">
             <mat-card class="example-card">
                 <div class="img-width">
                     <div class="pt-4"></div>

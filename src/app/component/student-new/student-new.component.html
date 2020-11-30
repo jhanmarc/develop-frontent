@@ -31,7 +31,7 @@
 
     <mat-grid-tile [colspan]="2">
         <mat-form-field class="example-full-width">
-            <input type="date" [(ngModel)]="student.fecha_naci" matInput placeholder="Calendario">
+            <input type="date" [(ngModel)]="student.fecha_naci" (change)="changeEdad($event)" matInput placeholder="Calendario">
         </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="2">
@@ -45,7 +45,13 @@
     </mat-grid-tile>
 
     <mat-grid-tile [colspan]="4" class="center">
-        <button (click)="newStudent()" mat-raised-button color="primary" >Agregar</button>
+        <button 
+        (click)="newStudent()"
+        [disabled]="!valid" 
+        mat-raised-button color="primary" 
+        mat-dialog-close
+        >
+        Agregar</button>
     </mat-grid-tile>
 
 </mat-grid-list>

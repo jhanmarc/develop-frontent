@@ -23,6 +23,10 @@ export class StudentNewComponent implements OnInit {
   listGrados:Array<Grado> = [];
   student:Person;
   public filesToUplad: Array<File>;
+  valid:Boolean=true;
+  close:Boolean=false;
+  
+  
 
   ngOnInit(): void {
     this.getGrados();
@@ -37,12 +41,22 @@ export class StudentNewComponent implements OnInit {
     this.filesToUplad = <Array<File>>fileInput.target.files;
     this.student.files = this.filesToUplad;
   }
+  
+  changeEdad(date:any){
+    this.student.edad = this.utils.getEdad(new Date(date.target.value))
+  }
 
   newStudent(){
-    console.log(this.student);
+    // console.log(this.student);
+    this.valid = false;
     this.personService.crearPerson(this.student).then(resp => {
       if(resp){
-        console.log(resp);
+        if(resp['status']){
+          this.valid = true;
+          this.close = true
+        }else{
+          this.valid = true;
+        }
       }
     })
   }

@@ -26,20 +26,8 @@ export class StudentComponent implements OnInit {
   urlStatic:string;
   // student:Person;
   listStudents:Array<Person> = [];
-
-  student = { 
-    nom_persona:"",
-    ape_pate_persona:"",
-    ape_mate_persona:"",
-    nid_grado:0,
-    grado:"",
-    nivel:"",
-    fecha_naci:"",
-    foto_ruta:"",
-    edad:""
-  };
+  listFirter:Array<Person> = [];
   
-
   ngOnInit(): void {
     this.getStudents()
   }
@@ -50,7 +38,7 @@ export class StudentComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      this.getStudents()
     });
   }
 
@@ -59,8 +47,33 @@ export class StudentComponent implements OnInit {
         this.listStudents.forEach((e:Person)=> {
           const sd = this.utils.getEdad(e.fecha_naci)
           e.edad = sd;
+          
         });
+        this.listFirter = this.listStudents;
     })
+    
+  }
+
+  search(term: string) {
+    if (term) {
+      this.listFirter = this.listStudents.filter((x) => this.evaluate(x, term));
+    } else if(this.listFirter.length == 0){
+        this.getStudents()
+    }
+    else {
+      this.getStudents()
+    }
+  }
+
+  private evaluate(x, term) {
+    console.log();
+    if (!x.nom_persona) {
+      x.nom_persona = "";
+    }
+    return x.nom_persona
+      .trim()
+      .toLowerCase()
+      .includes(term.trim().toLowerCase());
   }
 
 
