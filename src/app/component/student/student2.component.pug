@@ -1,0 +1,28 @@
+mat-grid-list(cols='4' rowheight='100px')
+  mat-grid-tile([colspan]='3')
+    .container.pt-4
+      form.example-form
+        h2 Estudiantes
+        mat-form-field.example-full-width
+          input(matinput='' placeholder='Buscar')
+  mat-grid-tile([colspan]='1')
+    button(mat-raised-button='' color='primary' (click)='openNewStudent()') Nuevo
+.pt-4
+br
+mat-divider
+.pt-4
+.width-container
+  mat-grid-list(cols='4' rowheight='50vh')
+    mat-grid-tile([colspan]='1')
+      mat-card.example-card
+        .img-width
+          .pt-4
+          img.img-card(mat-card-image='' src='https://www.w3schools.com/howto/img_avatar.png')
+        mat-card-content.center
+          h3 C&eacute;sar Torres
+          p 21 a&ntilde;o(s) 9 mes(es)
+          p 4to Grado Prim
+        mat-card-actions.center
+          button(mat-raised-button='' color='warn')
+            | Borrar
+            span.material-icons  delete 

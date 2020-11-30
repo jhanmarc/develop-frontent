@@ -1,0 +1,23 @@
+.example-form {
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.img-width{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-card{
+    width: 55% !important;
+    border-radius: 25px;
+}
+
+.example-card{
+    border: 1px solid black;
+}

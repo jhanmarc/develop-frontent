@@ -1,0 +1,42 @@
+<mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile [colspan]="3">
+        <div class="container pt-4">
+            <form class="example-form">
+                <h2>Estudiantes</h2>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Buscar">
+                </mat-form-field>
+            </form>
+        </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1">
+        <button mat-raised-button color="primary" (click)="openNewStudent()">Nuevo</button>
+    </mat-grid-tile>
+</mat-grid-list>
+<div class="pt-4"></div>
+<br>
+<mat-divider></mat-divider>
+<div class="pt-4"></div>
+<div class="width-container">
+    <mat-grid-list cols="4" rowHeight="50vh">
+        <mat-grid-tile *ngFor="let student of listStudents" [colspan]="1">
+            <mat-card class="example-card">
+                <div class="img-width">
+                    <div class="pt-4"></div>
+                    <img mat-card-image src="{{ urlStatic + student.foto_ruta }}" class="img-card">
+                </div>
+                <mat-card-content class="center">
+                    <h3>{{ student.nom_persona }} {{ student.ape_pate_persona  }}</h3>
+                    <p>{{student.edad}}</p>
+                    <p>{{ student.grado }} {{ student.nivel }}</p>
+                </mat-card-content>
+                <mat-card-actions class="center">
+                    <button mat-raised-button color="warn">
+                        Borrar
+                        <span class="material-icons"> delete </span>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

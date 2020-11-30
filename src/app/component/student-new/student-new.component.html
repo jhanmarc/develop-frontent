@@ -1,0 +1,51 @@
+<mat-grid-list cols="4" rowHeight="100px">
+    
+    <mat-grid-tile [colspan]="2">
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombres*</mat-label>
+            <input matInput [(ngModel)]="student.nom_persona" placeholder="Ingrese nombre">
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+        <mat-form-field class="example-full-width">
+            <input matInput [(ngModel)]="student.ape_pate_persona" placeholder="Apellido Paterno*">
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2">
+        <mat-form-field class="example-full-width">
+            <input matInput [(ngModel)]="student.ape_mate_persona" placeholder="Apellido Materno">
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+        <mat-form-field appearance="fill">
+
+            <mat-label>Seleccione grado</mat-label>
+            <mat-select [(ngModel)]="student.nid_grado">
+                <mat-option *ngFor="let grado of listGrados" [value]="grado.nid_grado">
+                    {{ grado.desc_grado }} {{ grado.nivel }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2">
+        <mat-form-field class="example-full-width">
+            <input type="date" name="fecha_naci" [(ngModel)]="student.fecha_naci" matInput placeholder="Calendario">
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+        <mat-form-field class="example-full-width">
+            <input matInput [(ngModel)]="student.edad"  placeholder="Años">
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3">
+        <input type="file" [(ngModel)]="student.foto_ruta" class="ng-hide" >
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="4" class="center">
+        <button mat-raised-button color="primary" >Agregar</button>
+    </mat-grid-tile>
+
+</mat-grid-list>
