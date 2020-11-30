@@ -33,6 +33,6 @@ export interface PeriodicElement {
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 29, name: 'Luis', weight: '4to Grado de Prim', symbol: 'H'},
-  {position: 30, name: 'Omar', weight: '1er Grado de Prim', symbol: 'He'},
+  {position: 30, name: 'Pedro', weight: '1er Grado de Prim', symbol: 'He'},
   {position: 31, name: 'Jhan', weight: '3er Grado de Prim', symbol: 'Li'},
 ];

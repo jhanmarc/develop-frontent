@@ -9,4 +9,5 @@ export class Person {
     fecha_naci:Date;
     foto_ruta:string;
     edad:string;
+    files:Array<File>=[]
 }

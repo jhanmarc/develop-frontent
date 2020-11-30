@@ -31,7 +31,7 @@
 
     <mat-grid-tile [colspan]="2">
         <mat-form-field class="example-full-width">
-            <input type="date" name="fecha_naci" [(ngModel)]="student.fecha_naci" matInput placeholder="Calendario">
+            <input type="date" [(ngModel)]="student.fecha_naci" matInput placeholder="Calendario">
         </mat-form-field>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="2">
@@ -41,11 +41,11 @@
     </mat-grid-tile>
 
     <mat-grid-tile [colspan]="3">
-        <input type="file" [(ngModel)]="student.foto_ruta" class="ng-hide" >
+        <input type="file" [(ngModel)]="student.files" (change)="ChangeImage($event)" class="ng-hide" >
     </mat-grid-tile>
 
     <mat-grid-tile [colspan]="4" class="center">
-        <button mat-raised-button color="primary" >Agregar</button>
+        <button (click)="newStudent()" mat-raised-button color="primary" >Agregar</button>
     </mat-grid-tile>
 
 </mat-grid-list>

@@ -17,21 +17,12 @@ import { UtilsService } from '../../services/utils.service';
 export class StudentNewComponent implements OnInit {
 
   constructor(private personService:PersonService, private utils: UtilsService, private gradoService:GradoService) { 
-    // this.student = new Person;
+    this.student = new Person;
   }
 
   listGrados:Array<Grado> = [];
-  student = { 
-    nom_persona:"",
-    ape_pate_persona:"",
-    ape_mate_persona:"",
-    nid_grado:0,
-    grado:"",
-    nivel:"",
-    fecha_naci:"",
-    foto_ruta:"",
-    edad:""
-  };
+  student:Person;
+  public filesToUplad: Array<File>;
 
   ngOnInit(): void {
     this.getGrados();
@@ -42,14 +33,18 @@ export class StudentNewComponent implements OnInit {
     this.gradoService.getGrados().subscribe(data => { this.listGrados = data['data']});
   }
 
+  ChangeImage(fileInput: any) {
+    this.filesToUplad = <Array<File>>fileInput.target.files;
+    this.student.files = this.filesToUplad;
+  }
+
   newStudent(){
-    // console.log(this.student);
-    // this.personService.crearPerson(data).subscribe(resp => {
-    //   if(resp){
-    //     // this.toastr.success('El usuario ha sido creado con éxito.');
-    //     // this.getUsers()
-    //   }
-    // })
+    console.log(this.student);
+    this.personService.crearPerson(this.student).then(resp => {
+      if(resp){
+        console.log(resp);
+      }
+    })
   }
 
 }
