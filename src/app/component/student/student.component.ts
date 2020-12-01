@@ -58,10 +58,10 @@ export class StudentComponent implements OnInit {
     if (term) {
       this.listFirter = this.listStudents.filter((x) => this.evaluate(x, term));
     } else if(this.listFirter.length == 0){
-        this.getStudents()
+      this.listFirter = this.listStudents
     }
     else {
-      this.getStudents()
+      this.listFirter = this.listStudents
     }
   }
 
